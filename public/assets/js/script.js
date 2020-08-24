@@ -16,23 +16,25 @@ $(document).ready(() => {
             timeFinish: timeFinish
         };
 
+        console.log(eventData);
+
 
         // If we have an email and password, run the signUpUser function
-        addEvent(userData.firstName, userData.lastName, userData.email, userData.password);
-        firstName.val("");
-        lastName.val("");
-        emailInput.val("");
-        passwordInput.val("");
+        insertEvent(eventData.eventName, eventData.dateStart, eventData.timeStart, eventData.timeFinish);
+        eventName.val("");
+        dateStart.val("");
+        timeStart.val("");
+        timeFinish.val("");
     });
 
     // Does a post to the signup route. If successful, we are redirected to the members page
     // Otherwise we log any errors
-    function signUpUser(firstName, lastName, email, password) {
-        $.post("/api/signup", {
-                firstName: firstName,
-                lastName: lastName,
-                email: email,
-                password: password
+    function insertEvent(event, date, start, finish) {
+        $.post("/api/insertEvent", {
+                eventName: event,
+                dateStart: date,
+                timeStart: start,
+                timeFinish: finish
             })
             .then(() => {
                 window.location.replace("/");

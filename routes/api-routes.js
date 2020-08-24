@@ -22,4 +22,10 @@ module.exports = function(app) {
             console.log(err);
         })
     })
+    app.post("/api/addEvent", (req, res) => {
+        db.Event.create({
+
+        })
+    })
+
 }

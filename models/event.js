@@ -3,9 +3,8 @@ module.exports = function(sequelize, DataTypes) {
         name: {
             type: DataTypes.STRING,
             allowNull: false,
-            unique: true,
+            unique: true
         },
-        //User First name
         owner_id: {
             type: DataTypes.INTEGER,
             reference: "user",
@@ -23,7 +22,6 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.TIME,
             allowNull: true
         }
-
     });
 
     return Events;
