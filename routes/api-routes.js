@@ -23,12 +23,20 @@ module.exports = function(app) {
         })
     })
     app.post("/api/addEvent", (req, res) => {
+        const data = req.body;
         db.Event.create({
-
+            name: data.eventName,
+            owner_id: data.ownerid,
+            event_date: data.dateStart,
+            event_start: data.timeStart,
+            event_end: data.timeFinish
+        }).then(() => {
+            res.status(200);
+        }).catch(err => {
+            res.status(401).json(err);
+            console.log(err);
         })
     })
-    app.put("/api/insertEvent", (req, res) => {
-        console.log(req.body);
-    })
+
 
 }

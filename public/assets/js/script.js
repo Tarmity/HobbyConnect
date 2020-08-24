@@ -11,11 +11,11 @@ $(document).ready(() => {
     eventForm.on("submit", event => {
         event.preventDefault();
         const eventData = {
-            userid: userid,
+            userid: userid.text(),
             eventName: eventName.val().trim(),
-            dateStart: dateStart,
-            timeStart: timeStart,
-            timeFinish: timeFinish
+            dateStart: dateStart.val(),
+            timeStart: timeStart.val(),
+            timeFinish: timeFinish.val()
         };
 
         console.log(eventData);
@@ -32,7 +32,7 @@ $(document).ready(() => {
     // Does a post to the signup route. If successful, we are redirected to the members page
     // Otherwise we log any errors
     function insertEvent(user, event, date, start, finish) {
-        $.post("/api/insertEvent", {
+        $.post("/api/addEvent", {
                 ownerid: user,
                 eventName: event,
                 dateStart: date,
