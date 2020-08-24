@@ -27,5 +27,8 @@ module.exports = function(app) {
 
         })
     })
+    app.put("/api/insertEvent", (req, res) => {
+        console.log(req.body);
+    })
 
 }

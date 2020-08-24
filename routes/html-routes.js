@@ -12,6 +12,7 @@ module.exports = function(app) {
         res.render('signup');
     });
     app.get("/index", (req, res) => {
-        res.render('index');
+
+        res.render('index', { user: req.user });
     })
 };

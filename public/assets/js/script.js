@@ -1,6 +1,7 @@
 $(document).ready(() => {
     // Getting references to our form and input
     const eventForm = $("form.event");
+    const userid = $("div.hide");
     const eventName = $("input#eventName");
     const dateStart = $("input#dateStart");
     const timeStart = $("input#timeStart");
@@ -10,6 +11,7 @@ $(document).ready(() => {
     eventForm.on("submit", event => {
         event.preventDefault();
         const eventData = {
+            userid: userid,
             eventName: eventName.val().trim(),
             dateStart: dateStart,
             timeStart: timeStart,
@@ -20,7 +22,7 @@ $(document).ready(() => {
 
 
         // If we have an email and password, run the signUpUser function
-        insertEvent(eventData.eventName, eventData.dateStart, eventData.timeStart, eventData.timeFinish);
+        insertEvent(eventData.userid, eventData.eventName, eventData.dateStart, eventData.timeStart, eventData.timeFinish);
         eventName.val("");
         dateStart.val("");
         timeStart.val("");
@@ -29,8 +31,9 @@ $(document).ready(() => {
 
     // Does a post to the signup route. If successful, we are redirected to the members page
     // Otherwise we log any errors
-    function insertEvent(event, date, start, finish) {
+    function insertEvent(user, event, date, start, finish) {
         $.post("/api/insertEvent", {
+                ownerid: user,
                 eventName: event,
                 dateStart: date,
                 timeStart: start,
