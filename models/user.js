@@ -41,5 +41,8 @@ module.exports = function(sequelize, DataTypes) {
             null
         );
     });
+    User.associate = (db) => {
+        User.belongsToMany(db.Event, { through: 'event_user' });
+    }
     return User;
 };

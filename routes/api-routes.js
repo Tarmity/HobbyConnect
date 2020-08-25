@@ -6,8 +6,8 @@ module.exports = function(app) {
         res.json({
             email: req.user.email,
             id: req.user.id
-        })
-    })
+        });
+    });
     app.post("/api/signup", (req, res) => {
         console.log(req.body);
         db.User.create({
@@ -20,8 +20,8 @@ module.exports = function(app) {
         }).catch(err => {
             res.status(401).json(err);
             console.log(err);
-        })
-    })
+        });
+    });
     app.post("/api/addEvent", (req, res) => {
         const data = req.body;
         db.Event.create({
@@ -35,8 +35,12 @@ module.exports = function(app) {
         }).catch(err => {
             res.status(401).json(err);
             console.log(err);
-        })
+        });
+    });
+    app.get("/api/events", (req, res) => {
+        const eventList = db.Event.findAll({ include: User });
+        console.log(eventList);
+        res.json(eventList);
     })
 
-
-}
+};
