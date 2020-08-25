@@ -5,17 +5,13 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false,
             unique: true
         },
-        event_date: {
-            type: DataTypes.DATEONLY,
-            allowNull: false
-        },
         event_start: {
-            type: DataTypes.TIME,
+            type: DataTypes.DATE,
             allowNull: false
         },
         event_end: {
-            type: DataTypes.TIME,
-            allowNull: true
+            type: DataTypes.DATE,
+            allowNull: false
         }
     });
     Event.associate = (db) => {

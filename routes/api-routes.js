@@ -38,7 +38,7 @@ module.exports = function(app) {
         });
     });
     app.get("/api/events", async(req, res) => {
-        const eventList = await db.Event.findAll({ include: db.User });
+        const eventList = await db.Event.findAll({ include: db.User, raw: true });
         console.log(eventList);
         res.json(eventList);
     })
