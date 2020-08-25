@@ -26,7 +26,7 @@ module.exports = function(app) {
         const data = req.body;
         db.Event.create({
             name: data.eventName,
-            owner_id: data.ownerid,
+            ownerId: data.ownerid,
             event_date: data.dateStart,
             event_start: data.timeStart,
             event_end: data.timeFinish
@@ -37,8 +37,8 @@ module.exports = function(app) {
             console.log(err);
         });
     });
-    app.get("/api/events", (req, res) => {
-        const eventList = db.Event.findAll({ include: User });
+    app.get("/api/events", async(req, res) => {
+        const eventList = await db.Event.findAll({ include: db.User });
         console.log(eventList);
         res.json(eventList);
     })

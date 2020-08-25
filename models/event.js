@@ -5,11 +5,6 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false,
             unique: true
         },
-        owner_id: {
-            type: DataTypes.INTEGER,
-            reference: "user",
-            referencesKey: "id"
-        },
         event_date: {
             type: DataTypes.DATEONLY,
             allowNull: false
@@ -24,6 +19,7 @@ module.exports = function(sequelize, DataTypes) {
         }
     });
     Event.associate = (db) => {
+        Event.belongsTo(db.User, { foreignKey: "ownerId" })
         Event.belongsToMany(db.User, { through: 'event_user' });
     };
     return Event;
