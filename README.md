@@ -32,7 +32,6 @@
      - In terminal, "npm i" to load dependencies
      - In terminal, "node server"
      - Navigate to your web browser, and in the address bar "http://localserver:8080
-     *This application will be uploaded to Heroku -> https://immense-dusk-57096.herokuapp.com/
      
 #### Contributers
      Tarmity Flassman
