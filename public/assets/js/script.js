@@ -67,8 +67,12 @@ $(document).ready(() => {
         var calendar = new FullCalendar.Calendar(calendarEl, {
             initialView: 'dayGridMonth',
             events: events,
-            eventClick: () => {
-                console.log(events);
+            eventClick: (data) => {
+                const eventInfo = data.event.title;
+                $.post("/eventInfo", { name: eventInfo }).then(() => {
+                    console.log("1");
+                    window.location.replace("/eventInfo");
+                });
             }
         });
         calendar.render();
