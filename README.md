@@ -38,7 +38,5 @@
      Alvaro Fernandes
      Carlo Cardona
      
-#### License 
-     This project is licensed under the terms of the [MIT](https://github.com/IgorAntun/node-chat/blob/master/LICENSE) license.
-
- [MIT](https://github.com/IgorAntun/node-chat/blob/master/LICENSE)
+#### License - [MIT](https://github.com/IgorAntun/node-chat/blob/master/LICENSE)
+     This project is licensed under the terms of the MIT license.
