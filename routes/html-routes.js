@@ -12,7 +12,11 @@ module.exports = function(app) {
     app.get("/signup", (req, res) => {
         res.render('signup');
     });
+
     app.get("/index", (req, res) => {
+        if (!req.isAuthenticated()) {
+            res.redirect("/")
+        }
         res.render('index', { user: req.user });
     })
 };

@@ -27,9 +27,8 @@ module.exports = function(app) {
         db.Event.create({
             name: data.eventName,
             ownerId: data.ownerid,
-            event_date: data.dateStart,
-            event_start: data.timeStart,
-            event_end: data.timeFinish
+            event_start: data.startDate,
+            event_end: data.endDate
         }).then(() => {
             res.status(200);
         }).catch(err => {

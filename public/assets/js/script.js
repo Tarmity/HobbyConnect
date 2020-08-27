@@ -7,9 +7,11 @@ $(document).ready(() => {
     const timeStart = $("input#timeStart");
     const timeFinish = $("input#timeFinish");
 
+
+
     // When the signup button is clicked, we validate the email and password are not blank
     eventForm.on("submit", event => {
-        event.preventDefault();
+        // event.preventDefault();
         const eventData = {
             userid: userid.text(),
             eventName: eventName.val().trim(),
@@ -32,12 +34,13 @@ $(document).ready(() => {
     // Does a post to the signup route. If successful, we are redirected to the members page
     // Otherwise we log any errors
     function insertEvent(user, event, date, start, finish) {
+        const startDate = `${date}T${start}:00`;
+        const endDate = `${date}T${finish}:00`;
         $.post("/api/addEvent", {
                 ownerid: user,
                 eventName: event,
-                dateStart: date,
-                timeStart: start,
-                timeFinish: finish
+                startDate: startDate,
+                endDate: endDate
             })
             .then(() => {
                 location.reload();
@@ -53,10 +56,22 @@ $(document).ready(() => {
 
     $.ajax("/api/events").then((data) => {
         console.log(data);
-
-        $("#calendar").FullCalendar([
-
-        ])
+        const events = data.map((element) => {
+            return {
+                title: element.name,
+                start: element.event_start,
+                end: element.event_end
+            }
+        })
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            events: events,
+            eventClick: () => {
+                console.log(events);
+            }
+        });
+        calendar.render();
     })
 
 });
