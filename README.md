@@ -4,7 +4,7 @@
 
 #### Motivation
      During this time of disconnect we wanted to create an applicaiton that bridges the gap between like minded people. 
-     If you are into chess, a movie lover, joggers, bowlers we wanted a platform where you can socialize with others.  
+     If you are into chess, jogging, bowling or a movie lover, we wanted a platform where you can socialize with others.  
 
 #### Technology
      BootStrap
