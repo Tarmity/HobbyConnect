@@ -2,10 +2,38 @@
 
 ### Sydney University BootCamp Project 
 
-#### Motivatioin
-     During this time of disconnected we wanted to create an applicaiton that bridges the gap between like minded people. 
-     If you are into chess, video games, or reading a book we wanted a platform where you can engage with others.  
+#### Motivation
+     During this time of disconnect we wanted to create an applicaiton that bridges the gap between like minded people. 
+     If you are into chess, a movie lover, joggers, bowlers we wanted a platform where you can socialize with others.  
 
+#### Technology
+     BootStrap
+     Node.JS
+     Express
+     Sequelize
+     Passport
+     MYSQL
+     Heroku
+     JQuery
+     HandleBars
+     fullcalendar.io
+     
+#### ScreenCaptures
+
+#### How To Use
+     - Visit ->  https://immense-dusk-57096.herokuapp.com/
+     - You will first need to create an account with an email, and password. 
+     - Successful creation will return you to the login page. 
+     - After sign on you're directed to the home page with the calendar on top and a form field at the bottom.
+     - Calendar events will be shown on the calendar for you to join.
+
+#### Installation
+     - GitClone with SSH
+     - In terminal, "npm i" to load dependencies
+     - In terminal, "node server"
+     - Navigate to your web browser, and in the address bar "http://localserver:8080
+     *This application will be uploaded to Heroku -> https://immense-dusk-57096.herokuapp.com/
+     
 #### Contributers
      Tarmity Flassman
      Alvaro Fernandes
