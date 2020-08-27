@@ -37,5 +37,8 @@
      Tarmity Flassman
      Alvaro Fernandes
      Carlo Cardona
+     
+#### License 
+     This project is licensed under the terms of the MIT license.
 
 
