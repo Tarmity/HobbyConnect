@@ -39,6 +39,6 @@
      Carlo Cardona
      
 #### License 
-     This project is licensed under the terms of the <a href = "https://github.com/IgorAntun/node-chat/blob/master/LICENSE">MIT</a> license.
+     This project is licensed under the terms of the [MIT](https://github.com/IgorAntun/node-chat/blob/master/LICENSE) license.
 
 
