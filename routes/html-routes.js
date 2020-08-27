@@ -19,4 +19,10 @@ module.exports = function(app) {
         }
         res.render('index', { user: req.user });
     })
+    app.get("/eventInfo", (req, res) => {
+        if (!req.isAuthenticated()) {
+            res.redirect("/");
+        }
+        res.render('eventInfo', { name: req.name });
+    })
 };
