@@ -43,7 +43,7 @@ $(document).ready(() => {
                 endDate: endDate
             })
             .then(() => {
-                location.reload();
+                window.location.reload();
                 // If there's an error, handle it by throwing up a bootstrap alert
             })
             .catch(handleLoginErr);
@@ -69,10 +69,7 @@ $(document).ready(() => {
             events: events,
             eventClick: (data) => {
                 const eventInfo = data.event.title;
-                $.post("/eventInfo", { name: eventInfo }).then(() => {
-                    console.log("1");
-                    window.location.replace("/eventInfo");
-                });
+                window.location = "/eventInfo?name=" + encodeURIComponent(eventInfo)
             }
         });
         calendar.render();

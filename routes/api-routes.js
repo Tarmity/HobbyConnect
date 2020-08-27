@@ -41,5 +41,17 @@ module.exports = function(app) {
         console.log(eventList);
         res.json(eventList);
     })
+    app.get("/api/addParticipan", async(req, res) => {
+        const data = req.body;
+        db.event_user.create({
+            EventId: data.event,
+            UserId: data.user
+        }).then(() => {
+            res.status(200);
+        }).catch(err => {
+            res.status(401).json(err);
+            console.log(err);
+        });
+    })
 
 };
