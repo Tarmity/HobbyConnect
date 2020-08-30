@@ -25,7 +25,6 @@ module.exports = function(app) {
         }
         const name = req.query.name
         const event = await db.Event.findOne({ where: { name: name }, include: db.User });
-        console.log(event);
         res.render('eventInfo', { user: req.user, event: event.toJSON() });
     })
 };
