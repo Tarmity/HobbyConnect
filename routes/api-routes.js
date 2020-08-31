@@ -9,7 +9,6 @@ module.exports = function(app) {
         });
     });
     app.post("/api/signup", (req, res) => {
-        console.log(req.body);
         db.User.create({
             first_name: req.body.firstName,
             last_name: req.body.lastName,
@@ -38,8 +37,20 @@ module.exports = function(app) {
     });
     app.get("/api/events", async(req, res) => {
         const eventList = await db.Event.findAll({ include: db.User, raw: true });
-        console.log(eventList);
         res.json(eventList);
+    })
+    app.post("/api/addParticipant", (req, res) => {
+        const data = req.body;
+        console.log(data);
+        db.Event.event_user.create({
+            eventId: data.event,
+            userId: data.user
+        }).then(() => {
+            res.status(200);
+        }).catch(err => {
+            res.status(401).json(err);
+            console.log(err);
+        });
     })
 
 };

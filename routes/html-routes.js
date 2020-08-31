@@ -19,10 +19,12 @@ module.exports = function(app) {
         }
         res.render('index', { user: req.user });
     })
-    app.get("/eventInfo", (req, res) => {
+    app.get("/eventInfo", async(req, res) => {
         if (!req.isAuthenticated()) {
             res.redirect("/");
         }
-        res.render('eventInfo', { name: req.name });
+        const name = req.query.name
+        const event = await db.Event.findOne({ where: { name: name }, include: db.User });
+        res.render('eventInfo', { user: req.user, event: event.toJSON() });
     })
 };
