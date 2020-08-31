@@ -55,7 +55,6 @@ $(document).ready(() => {
     };
 
     $.ajax("/api/events").then((data) => {
-        console.log(data);
         const events = data.map((element) => {
             return {
                 title: element.name,

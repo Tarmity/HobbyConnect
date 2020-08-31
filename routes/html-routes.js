@@ -24,7 +24,14 @@ module.exports = function(app) {
             res.redirect("/");
         }
         const name = req.query.name
+
         const event = await db.Event.findOne({ where: { name: name }, include: db.User });
+        const eventUsers = await db.UserEvent.findAll({ where: { eventId: event.id } })
+        console.log(eventUsers);
+
+
+        // const part = await db.UserEvent.findAll({ where: { eventId: event.id }, include: db.User });
+        // console.log(part);
         res.render('eventInfo', { user: req.user, event: event.toJSON() });
     })
 };

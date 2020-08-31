@@ -10,7 +10,7 @@
   </nav>
   <div>
     <div class="hide" id="eventID">{{event.id}}</div>
-    <h1 class="title">{{ event.name }}</h1>
+    <h1 class="headTwo">{{ event.name }}</h1>
     <div>
       <h4>Start</h4>
       {{ event.event_start}}
@@ -27,6 +27,13 @@
   <div>
     <button type="submit" id="add" class="btn btn-default">Participate</button>
   </div>
+    <div>
+      <ul>
+        {{#each participants}}
+          <li>{{this}}</li>
+        {{/each}}
+      </ul>
+    </div>
   </div>
 </div>
 <script>
