@@ -1,4 +1,5 @@
 ## Hobby Connect
+![License](https://img.shields.io/github/license/carlocardona/HobbyConnect)
 
 ### Sydney University BootCamp Project 
 
