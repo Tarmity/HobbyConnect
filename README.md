@@ -20,6 +20,8 @@
      
 #### ScreenCaptures
 
+![animated gif](https://github.com/carlocardona/HobbyConnect/blob/master/public/assets/img/hobbyConnectGif.gif)
+
 #### How To Use
      - Visit ->  https://immense-dusk-57096.herokuapp.com/
      - You will first need to create an account with an email, and password. 
