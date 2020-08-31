@@ -42,7 +42,7 @@ module.exports = function(app) {
     app.post("/api/addParticipant", (req, res) => {
         const data = req.body;
         console.log(data);
-        db.Event.event_user.create({
+        db.UserEvent.create({
             eventId: data.event,
             userId: data.user
         }).then(() => {
